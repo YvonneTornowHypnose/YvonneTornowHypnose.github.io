@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bist du bereit für Veränderung? | Selbsttest – Veränderung Hypnose Berlin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3D2E24;
+    --indigo:#6B4C3B;
+    --indigo-deep:#2C2018;
+    --gold:#C4A882;
+    --gold-light:#B5745A;
+    --cream:#FAF7F2;
+    --card:#EAE0D0;
+    --lavender:#B5745A;
+    --line:#EAE0D0;
+    --white:#FFFDFB;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Jost',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{ font-family:'Cormorant Garamond',serif; font-weight:400; }
+  .wrap{
+    max-width:720px;
+    margin:0 auto;
+    padding:48px 24px 80px;
+  }
+  .brand{
+    text-align:center;
+    margin-bottom:8px;
+  }
+  .brand .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:12px;
+    color:var(--gold);
+    font-weight:600;
+  }
+  .brand h1{
+    font-size:clamp(28px,5vw,40px);
+    font-weight:500;
+    margin:6px 0 4px;
+    color:var(--indigo-deep);
+    line-height:1.15;
+  }
+  .brand p.sub{
+    color:#7A6258;
+    font-size:15px;
+    margin:0 0 32px;
+  }
+
+  /* Tabs */
+  .tabs{
+    display:flex;
+    gap:8px;
+    background:var(--card);
+    border-radius:999px;
+    padding:6px;
+    margin:0 auto 36px;
+    max-width:400px;
+  }
+  .tab{
+    flex:1;
+    text-align:center;
+    padding:11px 16px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:14px;
+    cursor:pointer;
+    color:var(--indigo);
+    transition:all .25s ease;
+    user-select:none;
+  }
+  .tab.active{
+    background:var(--indigo);
+    color:var(--white);
+    box-shadow:0 4px 14px rgba(51,44,88,0.25);
+  }
+
+  .card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:36px 32px;
+    box-shadow:0 8px 30px rgba(36,31,61,0.06);
+  }
+  @media (max-width:600px){ .card{ padding:26px 20px; } }
+
+  /* Intro */
+  .intro h2{
+    font-size:24px;
+    font-weight:500;
+    margin:0 0 12px;
+    color:var(--indigo-deep);
+  }
+  .intro p{ color:#7A6258; font-size:15.5px; }
+  .meta-row{
+    display:flex;
+    gap:18px;
+    margin:20px 0 26px;
+    font-size:13px;
+    color:var(--gold);
+    font-weight:600;
+  }
+  .meta-row span{ display:flex; align-items:center; gap:6px; }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    background:var(--indigo);
+    color:var(--white);
+    border:none;
+    padding:14px 28px;
+    border-radius:999px;
+    font-family:'Jost',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease;
+    text-decoration:none;
+  }
+  .btn:hover{ transform:translateY(-1px); box-shadow:0 8px 20px rgba(51,44,88,0.3); }
+  .btn.gold{ background:var(--gold); }
+  .btn.ghost{
+    background:transparent;
+    color:var(--indigo);
+    border:1.5px solid var(--indigo);
+  }
+  .btn:disabled{ opacity:0.45; cursor:not-allowed; transform:none; box-shadow:none; }
+
+  /* Progress */
+  .progress-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:28px;
+  }
+  .progress-track{
+    flex:1;
+    height:6px;
+    background:var(--card);
+    border-radius:99px;
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    background:linear-gradient(90deg,var(--lavender),var(--gold));
+    border-radius:99px;
+    transition:width .35s ease;
+  }
+  .progress-label{
+    font-size:12.5px;
+    color:#7A6258;
+    font-weight:600;
+    white-space:nowrap;
+  }
+
+  /* Question */
+  .q-label{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  .q-text{
+    font-size:21px;
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    color:var(--indigo-deep);
+    margin:0 0 24px;
+    line-height:1.35;
+  }
+  .options{ display:flex; flex-direction:column; gap:10px; }
+  .option{
+    text-align:left;
+    padding:15px 18px;
+    border:1.5px solid var(--line);
+    background:var(--cream);
+    border-radius:12px;
+    font-family:'Jost',sans-serif;
+    font-size:15px;
+    color:var(--ink);
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .option:hover{ border-color:var(--gold); background:#FBF3E7; }
+  .option.selected{ border-color:var(--indigo); background:var(--indigo); color:var(--white); }
+
+  .nav-row{
+    display:flex;
+    justify-content:space-between;
+    margin-top:28px;
+  }
+  .link-btn{
+    background:none; border:none; color:#7A6258; font-family:'Jost',sans-serif;
+    font-size:14px; cursor:pointer; padding:10px 4px;
+  }
+  .link-btn:hover{ color:var(--indigo); }
+
+  /* Lead gate */
+  .field{ margin-bottom:16px; }
+  .field label{
+    display:block; font-size:13px; font-weight:600; color:var(--indigo-deep); margin-bottom:6px;
+  }
+  .field input[type=text], .field input[type=email]{
+    width:100%;
+    padding:13px 14px;
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    font-family:'Jost',sans-serif;
+    font-size:15px;
+    background:var(--cream);
+    color:var(--ink);
+  }
+  .field input:focus{ outline:2px solid var(--gold); outline-offset:1px; }
+  .checkbox-row{
+    display:flex; gap:10px; align-items:flex-start; margin:20px 0 22px; font-size:13px; color:#7A6258;
+  }
+  .checkbox-row input{ margin-top:3px; flex-shrink:0; }
+  .checkbox-row a{ color:var(--indigo); }
+
+  /* Dial */
+  .dial-wrap{ display:flex; flex-direction:column; align-items:center; margin:6px 0 22px; }
+  .dial{ width:240px; height:120px; position:relative; overflow:hidden; }
+  .dial-bg{
+    width:240px; height:240px; border-radius:50%; position:absolute; top:0; left:0;
+    background:conic-gradient(from -90deg, var(--lavender) 0deg 60deg, var(--gold) 60deg 120deg, var(--indigo) 120deg 180deg, transparent 180deg 360deg);
+  }
+  .dial-mask{
+    position:absolute; top:14px; left:14px; width:212px; height:212px; border-radius:50%; background:var(--white);
+  }
+  .needle{
+    position:absolute; bottom:0; left:50%; width:3px; height:96px; background:var(--indigo-deep);
+    transform-origin:bottom center; transform:translateX(-50%) rotate(-90deg); border-radius:3px;
+    transition:transform 1s cubic-bezier(.2,.9,.25,1);
+  }
+  .needle::after{
+    content:''; position:absolute; bottom:-8px; left:50%; transform:translateX(-50%);
+    width:16px; height:16px; border-radius:50%; background:var(--indigo-deep);
+  }
+  .dial-caption{ font-size:12px; color:#7A6258; margin-top:6px; letter-spacing:.06em; text-transform:uppercase; font-weight:600; }
+
+  .result-badge{
+    text-align:center; font-size:12px; text-transform:uppercase; letter-spacing:.12em;
+    color:var(--gold); font-weight:700; margin-bottom:8px;
+  }
+  .result-title{
+    text-align:center; font-size:26px; font-family:'Fraunces',serif; font-weight:500;
+    color:var(--indigo-deep); margin:0 0 16px;
+  }
+  .result-text{ color:#7A6258; font-size:15.5px; }
+  .result-text p{ margin:0 0 14px; }
+  .cta-block{
+    margin-top:26px; padding-top:24px; border-top:1px solid var(--line);
+    display:flex; flex-direction:column; gap:12px; align-items:center;
+  }
+  .cta-note{ font-size:13px; color:#7A6258; text-align:center; }
+
+  footer{
+    text-align:center; margin-top:40px; font-size:12.5px; color:#7A6258;
+  }
+  .hidden{ display:none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <div class="eyebrow"><a href="https://veraenderung-hypnose-berlin.de/" style="color:inherit;text-decoration:none;">Veränderung Hypnose Berlin</a></div>
+    <h1>Bist du bereit für Veränderung?</h1>
+    <p class="sub">Ein kurzer Selbsttest &middot; 2 Minuten &middot; sofortiges Ergebnis</p>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" id="tab-privat" onclick="switchVariant('privat')">Privat</div>
+    <div class="tab" id="tab-business" onclick="switchVariant('business')">Unternehmen</div>
+  </div>
+
+  <div class="card">
+
+    <!-- INTRO -->
+    <div id="view-intro" class="intro">
+      <h2 id="intro-title"></h2>
+      <p id="intro-text"></p>
+      <div class="meta-row">
+        <span>⏱ 2 Minuten</span>
+        <span>❁ 8 Fragen</span>
+        <span>✓ Anonym bis zum Ergebnis</span>
+      </div>
+      <button class="btn" onclick="startQuiz()">Test jetzt starten</button>
+    </div>
+
+    <!-- QUESTIONS -->
+    <div id="view-quiz" class="hidden">
+      <div class="progress-row">
+        <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="progress-label" id="progress-label">Frage 1 / 8</div>
+      </div>
+      <div class="q-label" id="q-eyebrow">Frage 1</div>
+      <div class="q-text" id="q-text"></div>
+      <div class="options" id="q-options"></div>
+      <div class="nav-row">
+        <button class="link-btn" id="back-btn" onclick="prevQuestion()">← Zurück</button>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- LEAD GATE -->
+    <div id="view-lead" class="hidden">
+      <div class="q-eyebrow" style="color:var(--gold);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;">Fast geschafft</div>
+      <h2 style="font-size:22px;font-family:'Fraunces',serif;font-weight:500;color:var(--indigo-deep);margin:0 0 10px;">Wohin dürfen wir dein Ergebnis schicken?</h2>
+      <p style="color:#7A6258;font-size:15px;margin:0 0 24px;">Trag dich kurz ein – direkt danach siehst du dein persönliches Ergebnis auf dieser Seite.</p>
+      <div class="field">
+        <label for="lead-name">Vorname</label>
+        <input type="text" id="lead-name" placeholder="Dein Vorname">
+      </div>
+      <div class="field" id="company-field" style="display:none;">
+        <label for="lead-company">Unternehmen</label>
+        <input type="text" id="lead-company" placeholder="Firma (optional)">
+      </div>
+      <div class="field">
+        <label for="lead-email">E-Mail</label>
+        <input type="email" id="lead-email" placeholder="deine@email.de">
+      </div>
+      <div class="checkbox-row">
+        <input type="checkbox" id="lead-consent">
+        <label for="lead-consent">Ich bin einverstanden, dass meine Angaben zur Kontaktaufnahme gespeichert und verarbeitet werden. Mehr dazu in der <a href="https://veraenderung-hypnose-berlin.de/#datenschutz" target="_blank">Datenschutzerklärung</a>.</label>
+      </div>
+      <button class="btn gold" id="submit-btn" onclick="submitLead()">Ergebnis anzeigen</button>
+      <p id="lead-error" style="color:#b0473f;font-size:13px;margin-top:10px;"></p>
+    </div>
+
+    <!-- RESULT -->
+    <div id="view-result" class="hidden">
+      <div class="dial-wrap">
+        <div class="dial">
+          <div class="dial-bg"></div>
+          <div class="dial-mask"></div>
+          <div class="needle" id="needle"></div>
+        </div>
+        <div class="dial-caption">Dein Bereitschafts-Kompass</div>
+      </div>
+      <div class="result-badge" id="result-badge"></div>
+      <h2 class="result-title" id="result-title"></h2>
+      <div class="result-text" id="result-text"></div>
+      <div class="cta-block">
+        <a class="btn" id="cta-primary" href="#" target="_blank">Kostenloses Erstgespräch buchen</a>
+        <a class="btn ghost" id="cta-secondary" href="#">Mehr über mein Angebot erfahren</a>
+        <p class="cta-note">Remote oder vor Ort in Berlin &middot; 25+ Jahre Führungs- und Coaching-Erfahrung</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>© Veränderung Hypnose Berlin &middot; <a href="https://veraenderung-hypnose-berlin.de/#datenschutz" style="color:inherit;">Datenschutz</a></footer>
+</div>
+
+<script>
+/* ---------------- CONTENT ---------------- */
+const CONTENT = {
+  privat: {
+    intro: {
+      title: "Bist du bereit für Veränderung?",
+      text: "Es gibt etwas in deinem Leben, das sich anders anfühlen soll – aber du bist dir nicht sicher, ob der Moment schon reif ist? Dieser Test gibt dir eine erste, ehrliche Einschätzung."
+    },
+    questions: [
+      { text: "Wenn du an deine aktuelle Situation denkst, fühlst du dich...", options: [
+        { t: "Ich habe mich damit abgefunden, auch wenn es nicht ideal ist", v: 0 },
+        { t: "Ich merke, dass sich etwas ändern muss – aber nicht wie", v: 1 },
+        { t: "Ich bin bereit, aktiv etwas zu verändern", v: 2 } ] },
+      { text: "Wie oft denkst du in letzter Zeit über eine Veränderung nach?", options: [
+        { t: "Selten – eher ein diffuses Gefühl im Hintergrund", v: 0 },
+        { t: "Regelmäßig, es beschäftigt mich", v: 1 },
+        { t: "Fast täglich, ich kann nicht mehr wegsehen", v: 2 } ] },
+      { text: "Hast du schon versucht, das Thema allein mit Willenskraft zu lösen?", options: [
+        { t: "Nein, ich habe es noch nicht wirklich versucht", v: 0 },
+        { t: "Ja, aber es hat nicht lange gehalten", v: 1 },
+        { t: "Ja – und dabei gemerkt, dass Willenskraft allein nicht reicht", v: 2 } ] },
+      { text: "Wie reagierst du auf die Idee, mit deinem Unterbewusstsein zu arbeiten statt nur mit dem Kopf?", options: [
+        { t: "Eher skeptisch", v: 0 },
+        { t: "Neugierig, aber auch etwas unsicher", v: 1 },
+        { t: "Das klingt spannend, das würde ich gern ausprobieren", v: 2 } ] },
+      { text: "Wie stark beeinflusst das Thema aktuell deinen Alltag?", options: [
+        { t: "Es ist eher ein kleiner Stein im Schuh", v: 0 },
+        { t: "Es ist im Hintergrund immer irgendwie präsent", v: 1 },
+        { t: "Es beeinflusst meinen Alltag spürbar", v: 2 } ] },
+      { text: "Bist du bereit, dir dafür Unterstützung zu holen statt es allein zu versuchen?", options: [
+        { t: "Ich möchte es lieber allein schaffen", v: 0 },
+        { t: "Vielleicht – ich überlege noch", v: 1 },
+        { t: "Ja, definitiv", v: 2 } ] },
+      { text: "Wie viel Zeit und Energie bist du bereit, in den nächsten Wochen zu investieren?", options: [
+        { t: "Aktuell eher wenig", v: 0 },
+        { t: "Ein bisschen, wenn es sich ergibt", v: 1 },
+        { t: "Ich nehme mir bewusst Zeit dafür", v: 2 } ] },
+      { text: "Stell dir vor, in 12 Monaten hat sich nichts verändert. Wie fühlt sich das an?", options: [
+        { t: "Nicht schlimm", v: 0 },
+        { t: "Unangenehm, aber aushaltbar", v: 1 },
+        { t: "Das macht mir am meisten Angst", v: 2 } ] }
+    ],
+    bands: [
+      { min:0, max:5, badge:"Ergebnis", title:"Ein Gedanke ist da – der Moment reift noch",
+        text:"<p>Du spürst, dass etwas nicht ganz stimmt – aber im Moment ist es noch eher ein leises Gefühl als ein klarer Auftrag. Das ist völlig in Ordnung: Veränderung beginnt oft genau so, lange bevor sie sichtbar wird.</p><p>Wenn du magst, kannst du in einem unverbindlichen Erstgespräch einfach mal aussprechen, was da ist – ganz ohne Druck, etwas sofort verändern zu müssen.</p>" },
+      { min:6, max:11, badge:"Ergebnis", title:"Du stehst an der Schwelle",
+        text:"<p>Das Thema beschäftigt dich spürbar, und ein Teil von dir weiß bereits, dass es Zeit für einen nächsten Schritt ist. Oft ist genau dieser Punkt – zwischen Wissen und Handeln – der schwierigste. Hypnosecoaching setzt genau hier an: dort, wo reine Willenskraft an ihre Grenzen stößt.</p><p>Ein Erstgespräch kann dir helfen, herauszufinden, wie ein Weg für dich aussehen könnte.</p>" },
+      { min:12, max:16, badge:"Ergebnis", title:"Du bist bereit – jetzt ist der Moment",
+        text:"<p>Dein Ergebnis zeigt: Die Bereitschaft ist da, spürbar und klar. Das ist ein wertvoller Moment – und genau der richtige Zeitpunkt, um ihn zu nutzen, statt ihn verstreichen zu lassen.</p><p>Lass uns in einem kostenlosen Erstgespräch besprechen, wie ich dich mit über 25 Jahren Erfahrung und individuellem Hypnosecoaching – remote oder in Berlin – auf deinem Weg begleiten kann.</p>" }
+    ]
+  },
+  business: {
+    intro: {
+      title: "Ist Ihr Unternehmen bereit für Veränderung?",
+      text: "Steigender Stresslevel, zähe Veränderungsprozesse, Führungskräfte an ihrer Grenze? Dieser kurze Check gibt Ihnen eine erste Einschätzung zum Handlungsbedarf in Ihrem Team oder Unternehmen."
+    },
+    questions: [
+      { text: "Wie hoch ist der wahrgenommene Stresslevel in Ihrem Team aktuell?", options: [
+        { t: "Niedrig – alles im grünen Bereich", v: 0 },
+        { t: "Spürbar erhöht in Teilbereichen", v: 1 },
+        { t: "Hoch – mehrere Warnsignale (Fehlzeiten, Fluktuation)", v: 2 } ] },
+      { text: "Wie ist der Umgang mit Veränderungsprozessen bisher gelaufen?", options: [
+        { t: "Wir haben gute Routinen dafür", v: 0 },
+        { t: "Es gelingt, aber holprig", v: 1 },
+        { t: "Veränderungen scheitern häufig oder ziehen sich stark", v: 2 } ] },
+      { text: "Gibt es Führungskräfte, die aktuell erkennbar an ihre Belastungsgrenze stoßen?", options: [
+        { t: "Nein, mir ist nichts bekannt", v: 0 },
+        { t: "Vereinzelt", v: 1 },
+        { t: "Ja, mehrere", v: 2 } ] },
+      { text: "Wie offen ist Ihre Unternehmenskultur gegenüber Coaching-Ansätzen wie Hypnosecoaching?", options: [
+        { t: "Eher zurückhaltend", v: 0 },
+        { t: "Offen, wenn der Nutzen klar ist", v: 1 },
+        { t: "Sehr offen – wir suchen aktiv neue Wege", v: 2 } ] },
+      { text: "Wie dringend ist der Bedarf, kurzfristig spürbare Ergebnisse zu zeigen?", options: [
+        { t: "Kein akuter Druck", v: 0 },
+        { t: "Mittelfristig wichtig", v: 1 },
+        { t: "Hoher Handlungsdruck", v: 2 } ] },
+      { text: "Verfügt Ihr Unternehmen über Budget für Coaching-/Weiterbildungsmaßnahmen in diesem Bereich?", options: [
+        { t: "Aktuell nicht", v: 0 },
+        { t: "Grundsätzlich ja, müsste beantragt werden", v: 1 },
+        { t: "Ja, vorhanden", v: 2 } ] },
+      { text: "Wie wichtig ist Ihnen ein Ansatz, der nachweislich schnell wirkt (wenige Sitzungen)?", options: [
+        { t: "Nicht entscheidend", v: 0 },
+        { t: "Wäre ein Plus", v: 1 },
+        { t: "Sehr wichtig", v: 2 } ] },
+      { text: "Wie bereit sind Geschäftsführung oder HR, in ein Pilotprojekt zu investieren?", options: [
+        { t: "Eher abwartend", v: 0 },
+        { t: "Grundsätzlich offen", v: 1 },
+        { t: "Aktiv auf der Suche nach Lösungen", v: 2 } ] }
+    ],
+    bands: [
+      { min:0, max:5, badge:"Ergebnis", title:"Im Blick behalten",
+        text:"<p>Aktuell zeigen sich keine akuten Warnsignale in Ihrem Team. Trotzdem lohnt es sich, Themen wie Stressresilienz und Change-Kompetenz präventiv im Blick zu behalten, bevor aus kleinen Anzeichen größere Themen werden.</p><p>Gerne bespreche ich mit Ihnen unverbindlich, welche präventiven Formate für Ihr Unternehmen sinnvoll sein könnten.</p>" },
+      { min:6, max:11, badge:"Ergebnis", title:"Handlungsbedarf ist erkennbar",
+        text:"<p>Ihr Ergebnis zeigt spürbaren Handlungsbedarf – sei es bei Stresslevel, Führungskräfte-Belastung oder der Umsetzung von Veränderungsprozessen. Mit gezieltem Coaching lassen sich hier oft schon in wenigen Sitzungen sichtbare Verbesserungen erzielen.</p><p>Lassen Sie uns in einem Erstgespräch klären, wo ein Pilotprojekt – zum Beispiel im Bereich Führungskräftecoaching oder Stress & Burnout-Prävention – ansetzen könnte.</p>" },
+      { min:12, max:16, badge:"Ergebnis", title:"Akuter Handlungsbedarf – jetzt handeln lohnt sich",
+        text:"<p>Ihr Ergebnis deutet auf deutlichen Handlungsbedarf hin: hohe Belastung, ins Stocken geratene Veränderungsprozesse und Führungskräfte am Limit sind ernstzunehmende Signale. Mit über 25 Jahren eigener Führungserfahrung kombiniert mit Hypnosecoaching setze ich gezielt dort an, wo klassische Maßnahmen oft nicht mehr ausreichen.</p><p>Lassen Sie uns zeitnah in einem Erstgespräch besprechen, wie ein individuelles Konzept für Ihr Unternehmen aussehen könnte.</p>" }
+    ]
+  }
+};
+
+const ZEEG_URL = "https://zeeg.me/yvonne11/Erst";
+const SITE_URL_PRIVAT = "https://veraenderung-hypnose-berlin.de/#privat";
+const SITE_URL_BUSINESS = "https://veraenderung-hypnose-berlin.de/#business";
+const FORMSPREE_URL = "https://formspree.io/f/xzdlqkrz";
+
+/* ---------------- STATE ---------------- */
+let variant = 'privat';
+let qIndex = 0;
+let answers = [];
+let selectedScore = null;
+
+const introTitle = document.getElementById('intro-title');
+const introText = document.getElementById('intro-text');
+const companyField = document.getElementById('company-field');
+
+function switchVariant(v){
+  variant = v;
+  document.getElementById('tab-privat').classList.toggle('active', v==='privat');
+  document.getElementById('tab-business').classList.toggle('active', v==='business');
+  companyField.style.display = v === 'business' ? 'block' : 'none';
+  resetQuiz();
+  renderIntro();
+}
+
+function renderIntro(){
+  introTitle.textContent = CONTENT[variant].intro.title;
+  introText.textContent = CONTENT[variant].intro.text;
+  showView('intro');
+}
+
+function resetQuiz(){
+  qIndex = 0;
+  answers = [];
+  selectedScore = null;
+}
+
+function showView(name){
+  ['intro','quiz','lead','result'].forEach(v=>{
+    document.getElementById('view-'+v).classList.toggle('hidden', v!==name);
+  });
+}
+
+function startQuiz(){
+  resetQuiz();
+  showView('quiz');
+  renderQuestion();
+}
+
+function renderQuestion(){
+  const data = CONTENT[variant].questions[qIndex];
+  const total = CONTENT[variant].questions.length;
+  document.getElementById('q-eyebrow').textContent = 'Frage ' + (qIndex+1);
+  document.getElementById('q-text').textContent = data.text;
+  document.getElementById('progress-label').textContent = 'Frage ' + (qIndex+1) + ' / ' + total;
+  document.getElementById('progress-fill').style.width = (((qIndex)/total)*100) + '%';
+  document.getElementById('back-btn').style.visibility = qIndex===0 ? 'hidden' : 'visible';
+
+  const optWrap = document.getElementById('q-options');
+  optWrap.innerHTML = '';
+  data.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option';
+    btn.textContent = opt.t;
+    btn.onclick = () => selectAnswer(opt.v);
+    optWrap.appendChild(btn);
+  });
+}
+
+function selectAnswer(value){
+  answers[qIndex] = value;
+  const total = CONTENT[variant].questions.length;
+  if (qIndex < total - 1){
+    qIndex++;
+    renderQuestion();
+  } else {
+    document.getElementById('progress-fill').style.width = '100%';
+    showView('lead');
+  }
+}
+
+function prevQuestion(){
+  if (qIndex > 0){
+    qIndex--;
+    renderQuestion();
+  }
+}
+
+function computeScore(){
+  return answers.reduce((a,b) => a + b, 0);
+}
+
+function getBand(score){
+  return CONTENT[variant].bands.find(b => score >= b.min && score <= b.max);
+}
+
+async function submitLead(){
+  const name = document.getElementById('lead-name').value.trim();
+  const email = document.getElementById('lead-email').value.trim();
+  const company = document.getElementById('lead-company').value.trim();
+  const consent = document.getElementById('lead-consent').checked;
+  const errorEl = document.getElementById('lead-error');
+  const btn = document.getElementById('submit-btn');
+  errorEl.textContent = '';
+
+  if(!name || !email){ errorEl.textContent = 'Bitte Name und E-Mail angeben.'; return; }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ errorEl.textContent = 'Bitte eine gültige E-Mail-Adresse angeben.'; return; }
+  if(!consent){ errorEl.textContent = 'Bitte der Datenverarbeitung zustimmen, um fortzufahren.'; return; }
+
+  const score = computeScore();
+  const band = getBand(score);
+
+  btn.disabled = true;
+  btn.textContent = 'Wird gesendet...';
+
+  try{
+    await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new URLSearchParams({
+        _subject: 'Neuer Test-Lead (' + (variant==='privat'?'Privat':'Business') + '): ' + band.title,
+        Quelle: 'Selbsttest: Bist du bereit für Veränderung?',
+        Testvariante: variant === 'privat' ? 'Privat' : 'Unternehmen',
+        Name: name,
+        Unternehmen: company || '-',
+        'E-Mail': email,
+        Punktzahl: score + ' / 16',
+        Ergebniskategorie: band.title
+      })
+    });
+  } catch(e){
+    // Auch bei Netzwerkfehler zeigen wir dem Nutzer trotzdem sein Ergebnis an,
+    // damit der Test nicht "hängen bleibt". Lead ging ggf. nicht durch.
+    console.warn('Formspree-Übermittlung fehlgeschlagen:', e);
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Ergebnis anzeigen';
+  showResult(score, band, name);
+}
+
+function showResult(score, band, name){
+  const maxScore = 16;
+  const pct = Math.max(0, Math.min(1, score / maxScore));
+  const angle = -90 + pct * 180;
+  document.getElementById('needle').style.transform = 'translateX(-50%) rotate(' + angle + 'deg)';
+
+  document.getElementById('result-badge').textContent = band.badge;
+  document.getElementById('result-title').textContent = band.title;
+  document.getElementById('result-text').innerHTML = band.text;
+
+  const ctaPrimary = document.getElementById('cta-primary');
+  ctaPrimary.href = ZEEG_URL;
+  ctaPrimary.textContent = variant === 'privat' ? 'Kostenloses Erstgespräch buchen' : 'Erstgespräch für Unternehmen buchen';
+
+  const ctaSecondary = document.getElementById('cta-secondary');
+  ctaSecondary.href = variant === 'privat' ? SITE_URL_PRIVAT : SITE_URL_BUSINESS;
+  ctaSecondary.textContent = variant === 'privat' ? 'Mehr über mein Coaching-Angebot' : 'Mehr über Angebote für Unternehmen';
+
+  showView('result');
+}
+
+/* init */
+renderIntro();
+</script>
+</body>
+</html>
